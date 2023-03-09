@@ -1,5 +1,6 @@
        Sum of line is "10"
 Error: Empty line as input
-       Sum of line is "6"
+       Sum of line is "0"
 Error: For value "six"
 Error: For value "7ty4"
+       Sum of line is "5"
