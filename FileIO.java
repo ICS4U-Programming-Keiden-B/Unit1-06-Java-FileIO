@@ -1,7 +1,6 @@
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -42,6 +41,7 @@ public final class FileIO {
 
             int sum = 0;
             boolean noError = true;
+            String errorStr = "";
 
             for (String valueStr : txtList) {
                 try {
@@ -50,19 +50,18 @@ public final class FileIO {
                     sum += valueInt;
                 } catch (NumberFormatException error) {
                     noError = false;
-                    if ("".equals(valueStr)) {
-                        fileOut.write("Error: Empty line as input\n");
-                    } else {
-                        fileOut.write("Error: For value \""
-                            + valueStr + "\"\n");
-                    }
-                    pushed = true;
+                    errorStr += " " + valueStr;
                 }
             }
             if (noError) {
-                fileOut.write("       Sum of line is \"" + sum + "\"\n");
-                pushed = true;
+                fileOut.write("       Sum of line is \" " + sum + " \"\n");
+            } else if (" ".equals(errorStr)) {
+                fileOut.write("Error: Empty line as input\n");
+            } else {
+                fileOut.write("Error: For value \""
+                    + errorStr + " \"\n");
             }
+            pushed = true;
         }
         if (pushed) {
             System.out.println("Successfully wrote to file!");
