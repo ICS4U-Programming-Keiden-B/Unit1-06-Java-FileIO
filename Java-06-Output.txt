@@ -1,0 +1,5 @@
+       Sum of line is "10"
+Error: Empty line as input
+       Sum of line is "6"
+Error: For value "six"
+Error: For value "7ty4"
